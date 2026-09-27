@@ -12,8 +12,8 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="My Slide Library" />
   <Description DefaultValue="Save reusable slides into your own library, then drop them into any presentation with one click, the same way as think-cell's slide library." />
-  <IconUrl DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-80.png" />
+  <IconUrl DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/assets/icon-80.png" />
   <SupportUrl DefaultValue="https://github.com/kokAU-97/SlideLibraryAddin" />
 
   <AppDomains>
@@ -31,7 +31,7 @@
   </Requirements>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/taskpane.html?v=1" />
+    <SourceLocation DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/taskpane.html?v=1" />
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -80,13 +80,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/assets/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/assets/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/taskpane.html?v=1" />
+        <bt:Url id="Commands.Url" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/taskpane.html?v=1" />
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://github.com/kokAU-97/SlideLibraryAddin" />
       </bt:Urls>
       <bt:ShortStrings>
