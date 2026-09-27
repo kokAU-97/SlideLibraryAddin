@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+
+  <!-- IMPORTANT: This GUID must stay the same across updates, but must be unique to your add-in. -->
+  <Id>09f27333-3e2e-4156-8b66-5cd515b40d63</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>My Slide Library</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="My Slide Library" />
+  <Description DefaultValue="Save reusable slides into your own library, then drop them into any presentation with one click, the same way as think-cell's slide library." />
+  <IconUrl DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-80.png" />
+  <SupportUrl DefaultValue="https://github.com/kokAU-97/SlideLibraryAddin" />
+
+  <AppDomains>
+    <AppDomain>https://kokau-97.github.io</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Presentation" />
+  </Hosts>
+
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="PowerPointApi" MinVersion="1.2" />
+    </Sets>
+  </Requirements>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/taskpane.html?v=1" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Presentation">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title" />
+            <Description resid="GetStarted.Description" />
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl" />
+          </GetStarted>
+          <FunctionFile resid="Commands.Url" />
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="SlideLibraryGroup">
+                <Label resid="SlideLibraryGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16" />
+                  <bt:Image size="32" resid="Icon.32x32" />
+                  <bt:Image size="80" resid="Icon.80x80" />
+                </Icon>
+                <Control xsi:type="Button" id="TaskpaneButton">
+                  <Label resid="TaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="TaskpaneButton.Label" />
+                    <Description resid="TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16" />
+                    <bt:Image size="32" resid="Icon.32x32" />
+                    <bt:Image size="80" resid="Icon.80x80" />
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>SlideLibraryTaskpane</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/assets/icon-80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://kokau-97.github.io/SlideLibraryAddin/slide-library-addin/taskpane.html?v=1" />
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://github.com/kokAU-97/SlideLibraryAddin" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Get started with My Slide Library" />
+        <bt:String id="SlideLibraryGroup.Label" DefaultValue="Slide Library" />
+        <bt:String id="TaskpaneButton.Label" DefaultValue="My Slides" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="Save slides you reuse often, then drop any of them into the current presentation with one click." />
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open your slide library" />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

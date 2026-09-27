@@ -1,0 +1,492 @@
+:root {
+  --ink: #1b2430;
+  --ink-soft: #5b6673;
+  --line: #e2e5ea;
+  --surface: #ffffff;
+  --surface-sunken: #f5f6f8;
+  --navy: #2e3a59;
+  --accent: #5ebdad;
+  --danger: #c0392b;
+  --radius: 8px;
+  --radius-sm: 5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* The native `hidden` attribute must always win over any display value
+   we set via classes below (several use display:flex, which would
+   otherwise silently override `hidden`). */
+[hidden] {
+  display: none !important;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.loading {
+  padding: 24px 16px;
+  color: var(--ink-soft);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 14px 14px 10px;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.brand-mark {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--navy), #445b8c);
+  position: relative;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 5px;
+  top: 6px;
+  bottom: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 0 #fff;
+}
+
+.brand h1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn:hover {
+  background: var(--surface-sunken);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 1px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #232c45;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--ink-soft);
+  padding: 6px 8px;
+  font-weight: 500;
+}
+
+.btn-ghost:hover {
+  background: var(--surface-sunken);
+  color: var(--danger);
+}
+
+.btn-ghost.btn-confirm {
+  color: #fff;
+  background: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn-ghost.btn-confirm:hover {
+  background: #a8341f;
+}
+
+/* ---------- Add menu (dropdown) ---------- */
+
+.add-menu {
+  position: relative;
+  flex: none;
+}
+
+.menu-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(20, 25, 40, 0.14);
+  min-width: 220px;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 9px 12px;
+  border: none;
+  background: none;
+  font-size: 12.5px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background: var(--surface-sunken);
+}
+
+/* ---------- Banners / panels ---------- */
+
+.banner {
+  background: #fff7e6;
+  border: 1px solid #f0d9a8;
+  color: #7a5b12;
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.confirm-panel,
+.progress-panel {
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.confirm-panel p {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+}
+
+.confirm-category-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  margin-bottom: 8px;
+  background: var(--surface);
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.progress-panel p {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+/* ---------- Toolbar / search ---------- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.search {
+  flex: 1;
+  min-width: 0;
+}
+
+.search input {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 12.5px;
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.search input:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 1px;
+}
+
+.keep-formatting-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.status {
+  min-height: 16px;
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+/* ---------- Compact hint line ---------- */
+
+.hint-line {
+  margin: 0 0 8px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+/* ---------- Outer scroll container ---------- */
+
+.grid-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 8px;
+}
+
+/* ---------- Category sections ---------- */
+
+.category-section {
+  margin-bottom: 6px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 6px 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+}
+
+.category-header:hover {
+  color: var(--navy);
+}
+
+.category-header .chev {
+  flex: none;
+  color: var(--ink-soft);
+}
+
+.category-header .count {
+  font-weight: 400;
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  padding: 2px 2px 4px;
+}
+
+.scroll-sentinel {
+  grid-column: 1 / -1;
+  height: 1px;
+}
+
+/* ---------- Slide cards ---------- */
+
+.slide-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slide-card:hover {
+  border-color: var(--navy);
+}
+
+.slide-card:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.slide-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slide-thumb.placeholder {
+  color: #b9c0cb;
+}
+
+.slide-card.inserting .slide-thumb {
+  opacity: 0.5;
+}
+
+.category-badge {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  background: rgba(46, 58, 89, 0.85);
+  color: #fff;
+  font-size: 9.5px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  max-width: calc(100% - 8px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.slide-name,
+.slide-category {
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 4px 6px;
+  border-radius: 3px;
+}
+
+.slide-name {
+  font-size: 11px;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.slide-category {
+  font-size: 10px;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+
+.slide-name:hover, .slide-name:focus,
+.slide-category:hover, .slide-category:focus {
+  background: var(--surface-sunken);
+  outline: none;
+}
+
+.slide-card .delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+}
+
+.slide-card:hover .delete-btn,
+.slide-card:focus-within .delete-btn {
+  display: flex;
+}
+
+.slide-card .delete-btn:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}

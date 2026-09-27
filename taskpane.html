@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Slide Library</title>
+  <link rel="stylesheet" href="taskpane.css?v=1" />
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+  <div id="app" class="app" hidden>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <h1>My Slides</h1>
+      </div>
+      <div class="add-menu">
+        <button id="add-btn" class="btn btn-primary" type="button" aria-haspopup="true" aria-expanded="false">+ Add ▾</button>
+        <div id="add-menu-panel" class="menu-panel" hidden>
+          <button type="button" class="menu-item" id="save-current-btn">Save current slide</button>
+          <button type="button" class="menu-item" id="import-all-btn">Import all slides from this file…</button>
+          <label class="menu-item" for="file-input">Upload slide files (.pptx)</label>
+          <input id="file-input" type="file" accept=".pptx" multiple hidden />
+        </div>
+      </div>
+    </header>
+
+    <div id="unsupported-banner" class="banner" hidden>
+      Your PowerPoint version can't capture slides directly (needs a fairly
+      recent Microsoft 365). You can still insert library items below, and
+      add new ones via "Upload slide files".
+    </div>
+
+    <div id="import-confirm" class="confirm-panel" hidden>
+      <p id="import-confirm-text"></p>
+      <input id="import-category-input" list="category-options" class="confirm-category-input" placeholder="Category for these slides (optional)" />
+      <div class="confirm-actions">
+        <button id="import-confirm-yes" class="btn btn-primary" type="button">Import</button>
+        <button id="import-confirm-no" class="btn btn-ghost" type="button">Cancel</button>
+      </div>
+    </div>
+
+    <div id="import-progress" class="progress-panel" hidden>
+      <p id="import-progress-text">Importing…</p>
+      <div class="progress-track"><div id="import-progress-bar" class="progress-bar"></div></div>
+      <button id="import-cancel-btn" class="btn btn-ghost" type="button">Cancel</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="search">
+        <input id="search-input" type="search" placeholder="Search your slides" aria-label="Search your slides" />
+      </div>
+      <button id="clear-all-btn" class="btn btn-ghost" title="Remove every slide from the library">Clear all</button>
+    </div>
+
+    <label class="keep-formatting-row">
+      <input type="checkbox" id="keep-formatting-checkbox" checked />
+      Keep original slide design when inserting
+    </label>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <p id="empty-state" class="hint-line" hidden>Your library is empty — save or import slides to get started.</p>
+    <p id="no-results" class="hint-line" hidden>No slides match "<span id="no-results-query"></span>".</p>
+
+    <main id="grid-container" class="grid-container" aria-label="Slide library"></main>
+
+    <datalist id="category-options"></datalist>
+  </div>
+
+  <div id="loading" class="loading">Loading your slide library…</div>
+
+  <script src="taskpane.js?v=1"></script>
+</body>
+</html>
